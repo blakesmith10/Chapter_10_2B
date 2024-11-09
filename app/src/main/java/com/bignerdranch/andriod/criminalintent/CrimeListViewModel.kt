@@ -12,11 +12,11 @@ class CrimeListViewModel : ViewModel() {
         for (i in 0 until 100) {
             val crime = Crime(
                 id = UUID.randomUUID(),
-                title ="Crime #$i",
+                title = "Crime #$i",
                 date = Date(),
-                isSolved = i % 2 == 0
+                isSolved = i % 2 == 0,
+                requiresPolice = i % 10 == 0 // Every 10th crime requires police
             )
-
             crimes += crime
         }
     }

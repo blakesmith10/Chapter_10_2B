@@ -10,10 +10,9 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bignerdranch.andriod.criminalintent.databinding.FragmentCrimeListBinding
 
-
 private const val TAG = "CrimeListFragment"
 
-class CrimeListFragment :Fragment() {
+class CrimeListFragment : Fragment() {
 
     private var _binding: FragmentCrimeListBinding? = null
     private val binding
@@ -31,15 +30,15 @@ class CrimeListFragment :Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
-        container : ViewGroup?,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ) : View? {
+    ): View? {
         _binding = FragmentCrimeListBinding.inflate(inflater, container, false)
 
         binding.crimeRecyclerView.layoutManager = LinearLayoutManager(context)
 
         val crimes = crimeListViewModel.crimes
-        val adapter = CrimeHolder.CrimeListAdapter(crimes)
+        val adapter = CrimeListAdapter(crimes)
         binding.crimeRecyclerView.adapter = adapter
 
         return binding.root
@@ -49,5 +48,4 @@ class CrimeListFragment :Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }
